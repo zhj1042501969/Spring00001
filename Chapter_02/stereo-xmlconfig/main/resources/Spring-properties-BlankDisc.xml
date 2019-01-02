@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--setter方法注入-->
+
+    <bean class="soundsystem2.properties.BlankDisc" id="compactDisc">
+        <property name="title" value="断桥残雪"/>
+        <property name="artist" value="vae"/>
+        <property name="tracks" ref="tracksList"/>
+            <!--<list>-->
+                <!--<value>有何不可</value>-->
+                <!--<value>最爱你的人是我</value>-->
+            <!--</list>-->
+    </bean>
+
+    <util:list id="tracksList">
+        <value>111</value>
+        <value>2222</value>
+    </util:list>
+
+
+    <bean class="soundsystem2.properties.CDPlayer" id="cdPlayer">
+        <property name="compactDisc" ref="compactDisc"/>
+    </bean>
+
+    <!--<bean class="soundsystem2.properties.CDPlayer" id="cdPlayer"-->
+          <!--p:compactDisc-ref="compactDisc"/>-->
+
+</beans>

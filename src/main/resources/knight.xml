@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--
+    constructor-arg:通过构造函数注入
+    property：通过setter对应的方法注入
+    -->
+    <bean id="knight" class="sia.knights.DI.BraveKnight">
+        <constructor-arg ref="quest"/>
+    </bean>
+    <!--装配任务-->
+    <bean id="quest" class="sia.knights.DI.SlayDragonQuest">
+        <constructor-arg value="#{T(System).out}" />
+    </bean>
+
+    <!--<bean id="quest" -->
+    <!--class="sia.knights.DI.RescueQuest">-->
+    <!--</bean>-->
+
+    <!--<bean id="knight" -->
+    <!--class="sia.knights.DI.BraveKnight">-->
+    <!--<constructor-arg ref="quest"/>-->
+    <!--<property name="quest" ref="RescueQuest"/>-->
+    <!--</bean>-->
+
+
+</beans>
